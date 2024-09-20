@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+#Todo Faire les paths de l'application au complet
+# inclus les views Etudiant, Professeur, Filiere, Classes
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]

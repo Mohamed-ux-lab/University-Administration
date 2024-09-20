@@ -5,24 +5,22 @@
     - Nom
     - Prenom 
     - Age
-    - Classe
-    - Filière
+    - Classe (ForeignKey)
+    - Filière (ForeignKey)
 
   ### Professeur
     - Nom
     - Prenom
-    - Classe (foreignKey)
-    - Cours
+    - Spécialité
+    - classes (ManyToMany)
+    - filiere (ManyToMany)
 
   ### Classes 
     - Niveau
-    - Etudiants (foreignKey)
-    - Professeur (foreignKey)
 
   ### Filières 
     - Spécialité
     - Description
-    - Etudiants (foreignKey)
 
 ## Fonctionnalité :
     [] - Ajouter des etudians
@@ -33,5 +31,3 @@
     [] - Modifier des professeur
     [] - Supprimer des professeur
     [] - Afficher tout les professeur
-    [] - Attribuer un professeur permanent à une filière
-    
