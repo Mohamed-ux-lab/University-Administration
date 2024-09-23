@@ -1,25 +1,14 @@
-"""
-URL configuration for studentAdministration project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 
-#Todo Faire les paths de l'application au complet
-# inclus les views Etudiant, Professeur, Filiere, Classes
+import classes.views as class_view
+import etudiant.views as etudiant_view
+import filiere.views as filiere_view
+import professeur.views as professeur_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', class_view.index, name='index')
 ]
+
+# Todo installer htmx pour le rafraichissement sans recharger la page

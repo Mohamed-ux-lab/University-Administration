@@ -1,0 +1,36 @@
+{% load static %}
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/sidenav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+
+<!--    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">-->
+    <title>My Administration</title>
+</head>
+<body>
+    <div class="sidenav">
+        <p class="logo"><a href="#logo">LOGO</a></p>
+        <a href="#acceuil">Acceuil</a>
+        <a href="#Vuegénéral">Vue général</a>
+        <a href="#etudiant">Etudiant</a>
+        <a href="#professeur">Professeur</a>
+      </div>
+      <div class="main">
+          <div class="topnav">
+            <div class="search-container">
+                <form action="">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+          </div>
+        {% block content %}
+        {% endblock %}
+      </div>
+</body>
+</html>

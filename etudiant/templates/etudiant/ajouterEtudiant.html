@@ -1,0 +1,10 @@
+{% extend "classes/index.html" %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <label id="nom">Nom</label>
+    <input type="text" name="nom">
+
+</form>
+{% endblock %}
