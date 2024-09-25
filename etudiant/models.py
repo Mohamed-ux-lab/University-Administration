@@ -4,8 +4,6 @@ from classes.models import Classes
 from filiere.models import Filiere
 
 
-# Todo -Creé le models etudiant.
-
 class Etudiant(models.Model):
     nom = models.CharField(max_length=125)
     prenom = models.CharField(max_length=125)
