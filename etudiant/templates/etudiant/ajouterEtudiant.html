@@ -1,30 +1,9 @@
-{% extend "classes/index.html" %}
+{% extends "index.html" %}
 
 {% block content %}
-<form method="post">
+<form method="POST">
     {% csrf_token %}
-    <label for="nom">Nom</label>
-    <input type="text" id="nom" name="nom">
-
-    <label for="prenom">Prenom</label>
-    <input type="text" id="prenom" name="prenom">
-
-    <label for="age">Age</label>
-    <input type="number" id="age" name="age_choice">
-
-    <label for="filiere">Classes</label>
-    <select id="filiere" name="filiere_choice">
-        {% for filiere in filieres %}
-        <option value="{% filiere.name %}">{% filiere.name %}</option>
-        {% endfor %}
-    </select>
-
-    <label for="classes">Classes</label>
-    <select id="classes" name="classes_choice">
-        {% for classe in classes %}
-            <option value="{% classe.niveau %}">{% classe.niveau %}</option>
-        {% endfor %}
-    </select>
+    {{ form.as_p }}
     <button type="submit">Inscrire</button>
 </form>
 {% endblock %}

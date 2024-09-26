@@ -1,22 +1,26 @@
-from django.shortcuts import render, get_object_or_404
+from http.client import HTTPResponse
+
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Etudiant
-from filiere.models import Filiere
-from classes.models import Classes
+from .forms_etudiant import Formsetudiant
 
 
 def show(request):
-    return render(request, '', context={'etudiants': Etudiant.objects.all()})
+    return render(request, 'etudiant/etudiant.html', context={'etudiants': Etudiant.objects.all()})
 
 
 def add(request):
-    pass
+    if request.method == 'POST':
+        form = Formsetudiant(request.POST)
+        if form.is_valid():
+            form.save()  # Enregistrer l'étudiant avec la filière et la classe choisies
 
+            return redirect('etudiant/etudiant.html')  # Rediriger vers une page de succès ou autre
 
-def choix_disponible(request):
-    filieres = Filiere.objects.all()
-    classes = Classes.object.all()
-    context = {"filieres": filieres, "classes": classes}
-    return render(request, context)
+    else:
+        form = Formsetudiant()  # Afficher un formulaire vide si GET
+
+    return render(request, 'etudiant/ajouterEtudiant.html', {'form': form})
 
 
 def delete(request, etudiant_id):
@@ -32,4 +36,9 @@ def modify(request, etudiant_id):
 
 def showone(request, etudiant_id):
     context = {"etudiant": get_object_or_404(Etudiant, pk=etudiant_id)}
-    return render(request, '', context)
+    return render(request, 'etudiant/onestudent.html', context)
+
+
+def alletudiant(request):
+    etudiant = Etudiant.objects.all()
+    return render(request,'etudiant/etudiant.html', {'etudiants': etudiant})

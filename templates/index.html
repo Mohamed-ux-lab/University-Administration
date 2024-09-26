@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/sidenav.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="{% static 'js/htmx.min.js' %}"></script>
 
@@ -17,7 +19,7 @@
         <p class="logo"><a href="#logo">LOGO</a></p>
         <a href="#acceuil">Acceuil</a>
         <a href="#Vuegénéral">Vue général</a>
-        <a href="#etudiant">Etudiant</a>
+        <a href="{% url 'etudiant' %}">Etudiant</a>
         <a href="#professeur">Professeur</a>
       </div>
       <div class="main">

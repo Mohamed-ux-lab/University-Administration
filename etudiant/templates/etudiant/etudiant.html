@@ -1,5 +1,30 @@
-{% extend "classes/index.html" %}
+{% extends "index.html" %}
 
 {% block content %}
+<h2>Tout les Etudiants de l'université</h2>
+<p>Pour chaque etudiant de chaque classe et filiere, il y a son nom, son prenom et son age.</p>
+<button type="button">
+    <a href="{% url 'ajouteretudiant' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
+</button>
 
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Age</th>
+    <th>Classe</th>
+    <th>Filiere</th>
+    <th>Voir</th>
+  </tr>
+  <tr>
+      {% for etudiant in etudiants %}
+    <td>{{ etudiant.nom }}</td>
+    <td>{{ etudiant.prenom }}</td>
+    <td>{{ etudiant.age }}</td>
+    <td>{{ etudiant.classes }}</td>
+    <td>{{ etudiant.filiere }}</td>
+    <td><a href="{% url 'showone' etudiant.id %}">-></a></td>
+      {% endfor %}
+  </tr>
+</table>
 {% endblock %}
