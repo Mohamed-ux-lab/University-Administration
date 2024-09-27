@@ -23,7 +23,9 @@ def add(request):
 
 
 def delete(request, professeur_id):
-    pass
+    professeur = get_object_or_404(Professeur, pk=professeur_id)
+    professeur.delete()
+    return redirect('professeur')
 
 
 def modify(request, professeur_id):

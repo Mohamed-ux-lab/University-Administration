@@ -1,5 +1,13 @@
-{% extends "index.html" %}
+{% extends 'index.html' %}
 
 {% block content %}
-
+<div class="card">
+  <img src="" alt="{{ etudiant.nom }}" style="width:15px; height:15px;">
+  <a href="{% url 'modifieretudiant' etudiants.id %}">modifier</a>
+  <a href="{% url 'deleteetudiant' etudiants.id %}">modifier</a>
+  <h1>M. {{ etudiants.nom }} {{ etudiants.prenom }}</h1>
+  <p>Age: {{ etudiants.age }}</p>
+  <p>Actuelment en {{ etudiants.classes }}</p>
+  <p>Progresse dans la filiere {{ etudiants.filiere }}</p>
+</div>
 {% endblock %}

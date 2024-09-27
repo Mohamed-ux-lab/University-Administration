@@ -24,10 +24,10 @@
 
 ## Fonctionnalité :
     [x] - Ajouter des etudians
-    [] - Modifier des etudiants
-    [] - Supprimer des etudiants
+    [x] - Modifier des etudiants
+    [x] - Supprimer des etudiants
     [x] - Afficher tout les etudians
     [x] - Ajouter des professeur
     [x] - Modifier des professeur
-    [] - Supprimer des professeur
+    [x] - Supprimer des professeur
     [x] - Afficher tout les professeur

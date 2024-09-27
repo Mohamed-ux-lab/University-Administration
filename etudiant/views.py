@@ -6,7 +6,7 @@ from .forms_etudiant import Formsetudiant
 
 
 def show(request):
-    return render(request, 'etudiant/etudiant.html', context={'etudiants': Etudiant.objects.all()})
+    return render(request, 'etudiant.html', context={'etudiants': Etudiant.objects.all()})
 
 
 def add(request):
@@ -15,30 +15,38 @@ def add(request):
         if form.is_valid():
             form.save()  # Enregistrer l'étudiant avec la filière et la classe choisies
 
-            return redirect('etudiant/etudiant')  # Rediriger vers une page de succès ou autre
+            return redirect('etudiant')  # Rediriger vers une page de succès ou autre
 
     else:
         form = Formsetudiant()  # Afficher un formulaire vide si GET
 
-    return render(request, 'etudiant/ajouterEtudiant.html', {'form': form})
+    return render(request, 'ajouterEtudiant.html', {'form': form})
 
 
 def delete(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
     etudiant.delete()
-    return render(request, '')
+    return redirect('etudiant')
 
 
 def modify(request, etudiant_id):
-    etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
-    pass
+    etudiant = get_object_or_404(Etudiant, id=etudiant_id)
+    if request.method == 'POST':
+        form = Formsetudiant(request.POST, instance=etudiant)
+        if form.is_valid():
+            form.save()
+            return redirect('etudiant')
+    else:
+        form = Formsetudiant(instance=etudiant)
+    return render(request, 'modifieretudiant.html', {'form': form})
 
 
 def showone(request, etudiant_id):
-    context = {"etudiant": get_object_or_404(Etudiant, pk=etudiant_id)}
-    return render(request, 'etudiant/onestudent.html', context)
+    etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
+    print(etudiant.id)
+    return render(request, 'onestudent.html', {"etudiants": etudiant})
 
 
 def alletudiant(request):
     etudiant = Etudiant.objects.all()
-    return render(request,'etudiant/etudiant.html', {'etudiants': etudiant})
+    return render(request, 'etudiant.html', {'etudiants': etudiant})

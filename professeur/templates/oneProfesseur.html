@@ -4,6 +4,7 @@
 <div class="card">
   <img src="" alt="{{ profs.nom }}" style="width:15px; height:15px;">
   <a href="{% url 'modifierprof' profs.id %}">modifier</a>
+  <a href="{% url 'deleteprof' profs.id %}">supprimer</a>
   <h1>M. {{ profs.nom }} {{ profs.prenom }}</h1>
   <p>Professeur en {{ profs.specialite }}</p>
   <p>Dispence des cour en
