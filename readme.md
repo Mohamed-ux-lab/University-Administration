@@ -23,11 +23,11 @@
     - Description
 
 ## Fonctionnalité :
-    [] - Ajouter des etudians
+    [x] - Ajouter des etudians
     [] - Modifier des etudiants
     [] - Supprimer des etudiants
-    [] - Afficher tout les etudians
-    [] - Ajouter des professeur
-    [] - Modifier des professeur
+    [x] - Afficher tout les etudians
+    [x] - Ajouter des professeur
+    [x] - Modifier des professeur
     [] - Supprimer des professeur
-    [] - Afficher tout les professeur
+    [x] - Afficher tout les professeur

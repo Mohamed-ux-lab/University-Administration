@@ -15,7 +15,7 @@ def add(request):
         if form.is_valid():
             form.save()  # Enregistrer l'étudiant avec la filière et la classe choisies
 
-            return redirect('etudiant/etudiant.html')  # Rediriger vers une page de succès ou autre
+            return redirect('etudiant/etudiant')  # Rediriger vers une page de succès ou autre
 
     else:
         form = Formsetudiant()  # Afficher un formulaire vide si GET

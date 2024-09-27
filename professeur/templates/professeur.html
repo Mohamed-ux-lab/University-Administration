@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "index.html" %}
 
-</body>
-</html>
+{% block content %}
+<h2>Tout les Professeur de l'université</h2>
+<p>Pour chaque professeur de chaque classe et filiere, il y a son nom, son prenom et sa specialite.</p>
+<button type="button">
+    <a href="{% url 'addProfesseur' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
+</button>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Specialite</th>
+    <th>Classe</th>
+    <th>Filiere</th>
+    <th>Voir</th>
+  </tr>
+      {% for prof in profs %}
+  <tr>
+    <td>{{ prof.nom }}</td>
+    <td>{{ prof.prenom }}</td>
+    <td>{{ prof.specialite }}</td>
+    <td>
+      {% for classe in prof.classes.all %}
+      {{ classe.niveau }}
+      {% endfor %}
+    </td>
+    <td>
+      {% for filiere in prof.filiere.all %}
+      {{ filiere.nom }}
+      {% endfor %}
+    </td>
+    <td><a href="{% url 'showoneprof' prof.id %}">-></a></td>
+  </tr>
+      {% endfor %}
+</table>
+{% endblock %}

@@ -16,15 +16,15 @@
     <th>Filiere</th>
     <th>Voir</th>
   </tr>
-  <tr>
       {% for etudiant in etudiants %}
+  <tr>
     <td>{{ etudiant.nom }}</td>
     <td>{{ etudiant.prenom }}</td>
     <td>{{ etudiant.age }}</td>
     <td>{{ etudiant.classes }}</td>
     <td>{{ etudiant.filiere }}</td>
     <td><a href="{% url 'showone' etudiant.id %}">-></a></td>
-      {% endfor %}
   </tr>
+      {% endfor %}
 </table>
 {% endblock %}
