@@ -7,24 +7,30 @@
     <a href="{% url 'ajouteretudiant' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
 </button>
 
-<table>
-  <tr>
-    <th>Nom</th>
-    <th>Prénom</th>
-    <th>Age</th>
-    <th>Classe</th>
-    <th>Filiere</th>
-    <th>Voir</th>
-  </tr>
+<div class="overflow-x-auto">
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Age</th>
+      <th>Classe</th>
+      <th>Filiere</th>
+      <th>Voir</th>
+    </tr>
+  </thead>
       {% for etudiant in etudiants %}
-  <tr>
-    <td>{{ etudiant.nom }}</td>
-    <td>{{ etudiant.prenom }}</td>
-    <td>{{ etudiant.age }}</td>
-    <td>{{ etudiant.classes }}</td>
-    <td>{{ etudiant.filiere }}</td>
-    <td><a href="{% url 'showone' etudiant.id %}">-></a></td>
-  </tr>
+  <tbody>
+    <tr class="bg-base-200">
+      <td>{{ etudiant.nom }}</td>
+      <td>{{ etudiant.prenom }}</td>
+      <td>{{ etudiant.age }}</td>
+      <td>{{ etudiant.classes }}</td>
+      <td>{{ etudiant.filiere }}</td>
+      <td><a href="{% url 'showone' etudiant.id %}">-></a></td>
+    </tr>
+  </tbody>
       {% endfor %}
 </table>
+</div>
 {% endblock %}

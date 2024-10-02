@@ -6,33 +6,38 @@
 <button type="button">
     <a href="{% url 'addProfesseur' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
 </button>
-
-<table>
-  <tr>
-    <th>Nom</th>
-    <th>Prénom</th>
-    <th>Specialite</th>
-    <th>Classe</th>
-    <th>Filiere</th>
-    <th>Voir</th>
-  </tr>
-      {% for prof in profs %}
-  <tr>
-    <td>{{ prof.nom }}</td>
-    <td>{{ prof.prenom }}</td>
-    <td>{{ prof.specialite }}</td>
-    <td>
-      {% for classe in prof.classes.all %}
-      {{ classe.niveau }}
-      {% endfor %}
-    </td>
-    <td>
-      {% for filiere in prof.filiere.all %}
-      {{ filiere.nom }}
-      {% endfor %}
-    </td>
-    <td><a href="{% url 'showoneprof' prof.id %}">-></a></td>
-  </tr>
-      {% endfor %}
+<div class="overflow-x-auto">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Specialite</th>
+        <th>Classe</th>
+        <th>Filiere</th>
+        <th>Voir</th>
+      </tr>
+    </thead>
+    {% for prof in profs %}
+    <tbody>
+      <tr>
+      <td>{{ prof.nom }}</td>
+      <td>{{ prof.prenom }}</td>
+      <td>{{ prof.specialite }}</td>
+      <td>
+        {% for classe in prof.classes.all %}
+        {{ classe.niveau }}
+        {% endfor %}
+      </td>
+      <td>
+        {% for filiere in prof.filiere.all %}
+        {{ filiere.nom }}
+        {% endfor %}
+      </td>
+      <td><a href="{% url 'showoneprof' prof.id %}">-></a></td>
+    </tr>
+    </tbody>
+    {% endfor %}
 </table>
+</div>
 {% endblock %}
