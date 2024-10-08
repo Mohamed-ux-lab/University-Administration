@@ -6,41 +6,41 @@
     {% csrf_token %}
     <div class="border-b border-gray-900/10 pb-12 mx-5 mr-2">
 
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Information Personnelle de l'etudiant :</h2>
-        <p class="mt-1 text-sm leading-6 text-gray-600">Toute les informations dont l'etablissement aura besoin sur le concerner.</p>
+        <h2 class="text-base font-semibold leading-7 text-gray-900 dark:text-slate-50">Information Personnelle de l'etudiant :</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600 dark:text-slate-50">Toute les informations dont l'etablissement aura besoin sur le concerner.</p>
 
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
             <div class="sm:col-span-3">
-                <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-900">Nom</label>
+                <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-slate-50">Nom</label>
                 <div class="mt-2">
                     {{ form.nom }}
                 </div>
             </div>
 
             <div class="sm:col-span-3">
-              <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-900">Prenom</label>
+              <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-slate-50">Prenom</label>
               <div class="mt-2">
                 {{ form.prenom }}
               </div>
             </div>
 
             <div class="sm:col-span-3">
-              <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-900">Âge</label>
+              <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-slate-50">Âge</label>
               <div class="mt-2">
                 {{ form.age }}
               </div>
             </div>
 
             <div class="sm:col-span-3">
-              <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-900">La Filière</label>
+              <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-slate-50">La Filière</label>
               <div class="mt-2">
                 {{ form.filiere }}
               </div>
             </div>
 
             <div class="sm:col-span-3">
-              <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-900">La Classe</label>
+              <label for="{{ field.id_for_label }}" class="block text-sm font-medium leading-6 text-slate-50">La Classe</label>
               <div class="mt-2">
                 {{ form.classes }}
               </div>
@@ -49,7 +49,7 @@
         </div>
     </div>
         <div class="mt-6 mr-3 flex items-center justify-end gap-x-6">
-            <button type="button" class="text-sm font-semibold leading-6 text-gray-900" onclick="window.history.back()">Cancel</button>
+            <button type="button" class="text-sm font-semibold leading-6 dark:text-slate-50 text-gray-900" onclick="window.history.back()">Cancel</button>
             <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
         </div>
     </div>

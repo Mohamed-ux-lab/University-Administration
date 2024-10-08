@@ -5,6 +5,7 @@
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Enregistrer modifications</button>
+    <button type="submit" class="btn btn-primary">Enregistrer modifications</button>
+    {% include 'Button_retour.html' %}
 </form>
 {% endblock %}

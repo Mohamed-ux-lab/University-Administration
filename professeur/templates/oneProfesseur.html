@@ -1,23 +1,68 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<div class="card">
-  <img src="" alt="{{ profs.nom }}" style="width:15px; height:15px;">
-  <a href="{% url 'modifierprof' profs.id %}">modifier</a>
-  <a href="{% url 'deleteprof' profs.id %}">supprimer</a>
-  <h1>M. {{ profs.nom }} {{ profs.prenom }}</h1>
-  <p>Professeur en {{ profs.specialite }}</p>
-  <p>Dispence des cour en
-  {% for classes in profs.classes.all %}
-    {{ classes.niveau }}
-  </p>
-  {% empty %}
-  <p>N'enseigne dans aucune classe</p>
-  {% endfor %}
-  {% for filiere in profs.filiere.all %}
-  <p>Dans la filiere {{ filiere.nom }}</p>
-  {% empty %}
-  <p>N'enseigne dans aucune filiere</p>
-  {% endfor %}
+<div class="hero bg-base-200 ">
+  <div class="hero-content flex-col lg:flex-row px-3">
+    <div class="w-24 rounded-full">
+      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+    </div>
+      <div>
+        <h1 class="text-5xl font-bold">Professeur :</h1>
+        <p class="py-2">M. <strong>{{ profs.nom }}</strong> {{ profs.prenom }}</p>
+        <p class="py-2">Professeur en <strong>{{ profs.specialite }}</strong></p>
+        <p class="py-2">Dispence des cour en
+            {% for classes in profs.classes.all %}
+            <strong>{{ classes.niveau }}</strong>
+        </p>
+        {% empty %}
+        <p class="py-2">N'enseigne dans aucune classe</p>
+        {% endfor %}
+        {% for filiere in profs.filiere.all %}
+        <p class="py-2">
+          Dans la filiere <strong>{{ filiere.nom }}</strong>
+        </p>
+        {% empty %}
+        <p class="py-2">N'enseigne dans aucune filiere</p>
+        {% endfor %}
+        <button class="btn btn-primary">
+          <a href="{% url 'modifierprof' profs.id %}">modifier</a>
+        </button>
+        <button class="btn">
+          <a href="{% url 'deleteprof' profs.id %}">supprimer</a>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
+
+
+<!--<div class="card">-->
+<!--  <div class="avatar online">-->
+<!--    <div class="w-24 rounded-full">-->
+<!--      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <h1>M. {{ profs.nom }} {{ profs.prenom }}</h1>-->
+<!--  <p>Professeur en {{ profs.specialite }}</p>-->
+<!--  <p>Dispence des cour en-->
+<!--  {% for classes in profs.classes.all %}-->
+<!--    {{ classes.niveau }}-->
+<!--  </p>-->
+<!--  {% empty %}-->
+<!--  <p>N'enseigne dans aucune classe</p>-->
+<!--  {% endfor %}-->
+<!--  {% for filiere in profs.filiere.all %}-->
+<!--  <p>Dans la filiere {{ filiere.nom }}</p>-->
+<!--  {% empty %}-->
+<!--  <p>N'enseigne dans aucune filiere</p>-->
+<!--  {% endfor %}-->
+<!--  <div>-->
+<!--    <button class="btn">-->
+<!--      <a href="{% url 'modifierprof' profs.id %}">modifier</a>-->
+<!--    </button>-->
+<!--    <button class="btn">-->
+<!--      <a href="{% url 'deleteprof' profs.id %}">supprimer</a>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->

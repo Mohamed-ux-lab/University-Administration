@@ -1,13 +1,13 @@
 {% extends "index.html" %}
 
 {% block content %}
-<h2>Tout les Professeur de l'université</h2>
-<p>Pour chaque professeur de chaque classe et filiere, il y a son nom, son prenom et sa specialite.</p>
+<h2 class="dark:text-slate-50">Tout les Professeur de l'université</h2>
+<p class="dark:text-slate-50">Pour chaque professeur de chaque classe et filiere, il y a son nom, son prenom et sa specialite.</p>
 <button type="button">
     <a href="{% url 'addProfesseur' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
 </button>
-<div class="overflow-x-auto">
-  <table class="table">
+<div class="overflow-x-auto dark:text-slate-50">
+  <table class="table dark:text-slate-50">
     <thead>
       <tr>
         <th>Nom</th>
@@ -20,7 +20,7 @@
     </thead>
     {% for prof in profs %}
     <tbody>
-      <tr>
+      <tr class="bg-base-200">
       <td>{{ prof.nom }}</td>
       <td>{{ prof.prenom }}</td>
       <td>{{ prof.specialite }}</td>

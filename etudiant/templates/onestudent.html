@@ -1,13 +1,46 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<div class="card">
-  <img src="" alt="{{ etudiant.nom }}" style="width:15px; height:15px;">
-  <a href="{% url 'modifieretudiant' etudiants.id %}">modifier</a>
-  <a href="{% url 'deleteetudiant' etudiants.id %}">modifier</a>
-  <h1>M. {{ etudiants.nom }} {{ etudiants.prenom }}</h1>
-  <p>Age: {{ etudiants.age }}</p>
-  <p>Actuelment en {{ etudiants.classes }}</p>
-  <p>Progresse dans la filiere {{ etudiants.filiere }}</p>
+<div class="hero bg-base-200 ">
+  <div class="hero-content flex-col lg:flex-row px-3">
+    <div class="w-24 rounded-full">
+      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+    </div>
+      <div>
+        <h1 class="text-5xl font-bold">Etudiant :</h1>
+        <p class="py-2">M. <strong>{{ etudiants.nom }}</strong> {{ etudiants.prenom }}</p>
+        <p class="py-2">Age: {{ etudiants.age }}</p>
+        <p class="py-2">Actuelment en <strong>{{ etudiants.classes }}</strong></p>
+        <p class="py-2">Progresse dans la filiere <strong>{{ etudiants.filiere }}</strong></p>
+        <button class="btn btn-primary">
+          <a href="{% url 'modifieretudiant' etudiants.id %}">modifier</a>
+        </button>
+        <button class="btn">
+          <a href="{% url 'deleteetudiant' etudiants.id %}">Supprimer</a>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
+
+
+<!--<div class="card">-->
+<!--  <div class="avatar online">-->
+<!--    <div class="w-24 rounded-full">-->
+<!--      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <h1>M. {{ etudiants.nom }} {{ etudiants.prenom }}</h1>-->
+<!--  <p>Age: {{ etudiants.age }}</p>-->
+<!--  <p>Actuelment en {{ etudiants.classes }}</p>-->
+<!--  <p>Progresse dans la filiere {{ etudiants.filiere }}</p>-->
+<!--</div>-->
+<!--<div>-->
+<!--  <button class="btn">-->
+<!--    <a href="{% url 'modifieretudiant' etudiants.id %}">modifier</a>-->
+<!--  </button>-->
+<!--  <button class="btn">-->
+<!--    <a href="{% url 'deleteetudiant' etudiants.id %}">Supprimer</a>-->
+<!--  </button>-->
+<!--</div>-->

@@ -1,14 +1,14 @@
 {% extends "index.html" %}
 
 {% block content %}
-<h2>Tout les Etudiants de l'université</h2>
-<p>Pour chaque etudiant de chaque classe et filiere, il y a son nom, son prenom et son age.</p>
+<h2 class="dark:text-slate-50">Tout les Etudiants de l'université</h2>
+<p class="dark:text-slate-50">Pour chaque etudiant de chaque classe et filiere, il y a son nom, son prenom et son age.</p>
 <button type="button">
     <a href="{% url 'ajouteretudiant' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
 </button>
 
-<div class="overflow-x-auto">
-  <table class="table">
+<div class="overflow-x-auto dark:text-slate-50">
+  <table class="table dark:text-slate-50">
   <thead>
     <tr>
       <th>Nom</th>
