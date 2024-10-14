@@ -1,12 +1,15 @@
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import path, include
 
 import classes.views as class_view
 import etudiant.views as etudiant_view
 import professeur.views as professeur_view
+import accounts.views as accounts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+   # path('', include('accounts.urls')),
     path('', class_view.index, name='index'),
     path('etudiant/', etudiant_view.show, name='etudiant'),
     path('ajouterEtudiant/', etudiant_view.add, name='ajouteretudiant'),
@@ -18,5 +21,5 @@ urlpatterns = [
     path('voirProf/<int:professeur_id>', professeur_view.showone, name='showoneprof'),
     path('modifierProf/<int:professeur_id>', professeur_view.modify, name='modifierprof'),
     path('deleteProf/<int:professeur_id>', professeur_view.delete, name='deleteprof'),
-    path('accounts/', include("accounts.urls")),
+    path('accounts/', include(('accounts.urls', 'accounts'), namespace='accounts')),
 ]

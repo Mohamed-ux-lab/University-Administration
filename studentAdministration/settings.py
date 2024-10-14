@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4$mv(n#lc3icffd-jwwas$ml53mk^ne54f2!ayd1f*j4(7d69=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
     'tailwind',
+    'django_seed',
     'theme',
     'etudiant',
     'filiere',
@@ -141,4 +143,5 @@ INTERNAL_IPS = [
 ]
 NPM_BIN_PATH = "/Program Files/nodejs/npm.cmd"
 
-
+LOGIN_REDIRECT_URL = 'etudiant'
+LOGOUT_REDIRECT_URL = 'accounts/login'
