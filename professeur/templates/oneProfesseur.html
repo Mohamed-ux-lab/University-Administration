@@ -25,10 +25,10 @@
         <p class="py-2">N'enseigne dans aucune filiere</p>
         {% endfor %}
         <button class="btn btn-primary">
-          <a href="{% url 'modifierprof' profs.id %}">modifier</a>
+          <a href="{% url 'professeur:modifierprof' profs.id %}">modifier</a>
         </button>
         <button class="btn">
-          <a href="{% url 'deleteprof' profs.id %}">supprimer</a>
+          <a href="{% url 'professeur:deleteprof' profs.id %}">supprimer</a>
         </button>
       </div>
     </div>

@@ -13,10 +13,10 @@
         <p class="py-2">Actuelment en <strong>{{ etudiants.classes }}</strong></p>
         <p class="py-2">Progresse dans la filiere <strong>{{ etudiants.filiere }}</strong></p>
         <button class="btn btn-primary">
-          <a href="{% url 'modifieretudiant' etudiants.id %}">modifier</a>
+          <a href="{% url 'etudiant:modifieretudiant' etudiants.id %}">modifier</a>
         </button>
         <button class="btn">
-          <a href="{% url 'deleteetudiant' etudiants.id %}">Supprimer</a>
+          <a href="{% url 'etudiant:deleteetudiant' etudiants.id %}">Supprimer</a>
         </button>
       </div>
     </div>

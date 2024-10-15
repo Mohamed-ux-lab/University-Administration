@@ -4,7 +4,7 @@
 <h2 class="dark:text-slate-50">Tout les Etudiants de l'université</h2>
 <p class="dark:text-slate-50">Pour chaque etudiant de chaque classe et filiere, il y a son nom, son prenom et son age.</p>
 <button type="button">
-    <a href="{% url 'ajouteretudiant' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
+    <a href="{% url 'etudiant:ajouteretudiant' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
 </button>
 
 <div class="overflow-x-auto dark:text-slate-50">
@@ -27,7 +27,7 @@
       <td>{{ etudiant.age }}</td>
       <td>{{ etudiant.classes }}</td>
       <td>{{ etudiant.filiere }}</td>
-      <td><a href="{% url 'showone' etudiant.id %}">-></a></td>
+      <td><a href="{% url 'etudiant:showone' etudiant.id %}">-></a></td>
     </tr>
   </tbody>
       {% endfor %}

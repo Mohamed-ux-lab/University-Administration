@@ -4,7 +4,7 @@
 <h2 class="dark:text-slate-50">Tout les Professeur de l'université</h2>
 <p class="dark:text-slate-50">Pour chaque professeur de chaque classe et filiere, il y a son nom, son prenom et sa specialite.</p>
 <button type="button">
-    <a href="{% url 'addProfesseur' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
+    <a href="{% url 'professeur:addProfesseur' %}" class="h-1 w-1 justify-end text-2xl">[+]</a>
 </button>
 <div class="overflow-x-auto dark:text-slate-50">
   <table class="table dark:text-slate-50">
@@ -34,7 +34,7 @@
         {{ filiere.nom }}
         {% endfor %}
       </td>
-      <td><a href="{% url 'showoneprof' prof.id %}">-></a></td>
+      <td><a href="{% url 'professeur:showoneprof' prof.id %}">-></a></td>
     </tr>
     </tbody>
     {% endfor %}

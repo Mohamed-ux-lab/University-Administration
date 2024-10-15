@@ -15,7 +15,7 @@ def add(request):
         if form.is_valid():
             form.save()  # Enregistrer l'étudiant avec la filière et la classe choisies
 
-            return redirect('etudiant')  # Rediriger vers une page de succès ou autre
+            return redirect('etudiant:etudiant')  # Rediriger vers une page de succès ou autre
 
     else:
         form = Formsetudiant()  # Afficher un formulaire vide si GET
@@ -26,7 +26,7 @@ def add(request):
 def delete(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
     etudiant.delete()
-    return redirect('etudiant')
+    return redirect('etudiant:etudiant')
 
 
 def modify(request, etudiant_id):
@@ -35,7 +35,7 @@ def modify(request, etudiant_id):
         form = Formsetudiant(request.POST, instance=etudiant)
         if form.is_valid():
             form.save()
-            return redirect('etudiant')
+            return redirect('etudiant:etudiant')
     else:
         form = Formsetudiant(instance=etudiant)
     return render(request, 'modifieretudiant.html', {'form': form})

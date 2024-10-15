@@ -14,7 +14,7 @@ def add(request):
         if form.is_valid():
             form.save()
 
-            return redirect('professeur')
+            return redirect('professeur:professeur')
 
     else:
         form = FormsProf()
@@ -25,7 +25,7 @@ def add(request):
 def delete(request, professeur_id):
     professeur = get_object_or_404(Professeur, pk=professeur_id)
     professeur.delete()
-    return redirect('professeur')
+    return redirect('professeur:professeur')
 
 
 def modify(request, professeur_id):
@@ -34,7 +34,7 @@ def modify(request, professeur_id):
         form = FormsProf(request.POST, instance=professeur)
         if form.is_valid():
             form.save()
-            return redirect('professeur')  # Rediriger vers la liste ou autre page
+            return redirect('professeur:professeur')  # Rediriger vers la liste ou autre page
     else:
         form = FormsProf(instance=professeur)
     return render(request, 'modifierprof.html', {'form': form})
