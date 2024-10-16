@@ -1,5 +1,57 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn">
-</form>
+{% load static %}
+{% load tailwind_tags %}
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/sidenav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    {% tailwind_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+
+<!--    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">-->
+    <title>My Administration</title>
+</head>
+<body>
+<div class="bg-sky-100 flex justify-center items-center h-screen">
+    <!-- Left: Image -->
+    <div class="w-1/2 h-screen hidden lg:block">
+      <img src="https://img.freepik.com/fotos-premium/imagen-fondo_910766-187.jpg?w=826" alt="Placeholder Image" class="object-cover w-full h-full">
+<!--      <img src="{% static 'img/image_login.jpg' %}" alt="Placeholder Image" class="object-cover w-full h-full">-->
+<!--      <img src="{% static 'img/imagen-fondo_910766-187.avif' %}" alt="Placeholder Image" class="object-cover w-full h-full">-->
+    </div>
+<!-- Right: Login Form -->
+    <div class= "lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
+
+          <h1 class="text-2xl font-semibold mb-4">Connexion</h1>
+          <form action="#" method="POST">
+              {% csrf_token %}
+            <!-- Username Input -->
+            <div class="mb-4 bg-sky-100">
+              <label for="username" class="block text-gray-600">Nom d'utilisateur</label>
+              <input type="text" id="username" name="username" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autocomplete="off">
+            </div>
+            <!-- Password Input -->
+            <div class="mb-4">
+              <label for="password" class="block text-gray-800">Mot de Passe</label>
+              <input type="password" id="password" name="password" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autocomplete="off">
+            </div>
+            <!-- Forgot Password Link -->
+            <div class="mb-6 text-blue-500">
+              <a href="#" class="hover:underline">Mot de passe oublié?</a>
+            </div>
+            <!-- Login Button -->
+            <button type="submit" class="bg-red-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>
+          </form>
+          <!-- Sign up  Link -->
+          <div class="mt-6 text-green-500 text-center">
+            <a href="#" class="hover:underline">Crée un compte</a>
+          </div>
+    </div>
+</div>
+
+</body>
+</html>
+
