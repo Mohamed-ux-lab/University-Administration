@@ -1,5 +1,3 @@
-from http.client import HTTPResponse
-
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Etudiant
 from .forms_etudiant import Formsetudiant
@@ -7,6 +5,7 @@ from .forms_etudiant import Formsetudiant
 
 def show(request):
     return render(request, 'etudiant.html', context={'etudiants': Etudiant.objects.all()})
+
 
 
 def add(request):
