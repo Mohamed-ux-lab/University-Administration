@@ -12,5 +12,5 @@ urlpatterns = [
     path('etudiant/', include("etudiant.urls", namespace='etudiant')),
     path('professeur/', include("professeur.urls", namespace='professeur')),
     path('accounts/', include("accounts.urls", namespace='accounts')),
-    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    # path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]

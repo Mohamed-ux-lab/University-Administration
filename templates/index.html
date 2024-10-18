@@ -16,11 +16,31 @@
 </head>
 <body>
     <div class="sidenav">
-        <p class="logo"><a href="#logo">LOGO</a></p>
-        <a href="{% url 'dashboard' %}" class="active:text-white active:font-bold active:bg-white active:rounded-md active:opacity-20">Acceuil</a>
-        <a href="#Vuegénéral">Vue général</a>
-        <a href="{% url 'etudiant:etudiant' %}">Etudiant</a>
-        <a href="{% url 'professeur:professeur' %}">Professeur</a>
+        <p class="logo"><a href="{% url 'dashboard' %}">LOGO</a></p>
+        <li class="{% if request.resolver_match.url_name == 'dashboard' %}
+        active
+        {% endif %}">
+            <a href="{% url 'dashboard' %}" class="nav-link">Acceuil</a>
+        </li>
+
+        <li class="{% if request.resolver_match.url_name == '' %}
+        active
+        {% endif %}">
+            <a href="#Vuegénéral" class="nav-link">Vue général</a>
+        </li>
+
+        <li class="{% if request.resolver_match.url_name == 'etudiant/' %}
+        active
+        {% endif %}">
+            <a href="{% url 'etudiant:etudiant' %}" class="nav-link">Etudiant</a>
+        </li>
+
+        <li class="{% if request.resolver_match.url_name == 'professeur/' %}
+        active
+        {% endif %}">
+            <a href="{% url 'professeur:professeur' %}" class="nav-link">Professeur</a>
+        </li>
+
     </div>
     <div class="navbar bg-base-100">
         <div class="flex-1">
@@ -57,9 +77,16 @@
             </div>
         </div>
 </div>
-      <div class="main">
+      <div class="main" id="content">
         {% block content %}
         {% endblock %}
       </div>
+
+<!-- Spinner pour le chargement dans la partie contenu -->
+    <div id="loading-spinner" class="fixed inset-0 bg-opacity-50 bg-gray-100 flex items-center justify-center hidden">
+        <div class="w-16 h-16 border-4 border-t-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
+    </div>
+
+<script src="{% static 'js/loading.js' %}"></script>
 </body>
 </html>

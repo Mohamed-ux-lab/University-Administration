@@ -110,8 +110,6 @@ LOGIN_URL = 'accounts:login'
 LOGIN_REDIRECT_URL = 'dashboard'  # ou une autre vue par défaut après connexion
 LOGOUT_REDIRECT_URL = 'accounts:login'
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
